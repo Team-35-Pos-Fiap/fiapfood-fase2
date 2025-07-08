@@ -1,0 +1,553 @@
+{
+	"info": {
+		"_postman_id": "9e3d0982-3f83-4d80-aeec-73c78a77199b",
+		"name": "Tech Challenge - Fiap Food - 35",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45515741",
+		"_collection_link": "https://www.postman.com/dark-moon-236306/fiap-team-35/collection/sod5rrj/tech-challenge-fiap-food-35?action=share&source=collection_link&creator=45515741"
+	},
+	"item": [
+		{
+			"name": "Serviços de Usuários",
+			"item": [
+				{
+					"name": "Login",
+					"item": [
+						{
+							"name": "Acesso",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"matricula\" : \"us0001\",\r\n  \"senha\" : \"123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Usuário - Atualizar senha",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"matricula\", \"us0001\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"senha\":\"124\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/login/{{matricula}}/senha",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"login",
+										"{{matricula}}",
+										"senha"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Usuário",
+					"item": [
+						{
+							"name": "Usuário - Cadastrar",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\" : \"Thiago Motta\",\r\n    \"email\" : \"thiago.motta@fiapfood.com\",\r\n    \"dadosEndereco\" : {\r\n        \"cidade\" : \"Nome da cidade\",\r\n        \"cep\" : \"24455077\",\r\n        \"bairro\" : \"Nome do bairro\",\r\n        \"endereco\" : \"Descrição do endereço\",\r\n        \"estado\" : \"Rio de Janeiro\",\r\n        \"numero\": 7,\r\n        \"complemento\" : \"Complemento do endereço\",\r\n        \"semNumero\" : false\r\n    },\r\n    \"perfil\": 1,\r\n    \"dadosLogin\" : {\r\n        \"matricula\" : \"us012\",\r\n        \"senha\" : \"123\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/usuarios",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"usuarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Usuário - Buscar por id",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"id\", \"54546505-5c56-4ca7-bd73-7139acec1f1a\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/usuarios/{{id}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"usuarios",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Usuário - Buscar todos",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"pagina\", 1);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/usuarios?pagina={{pagina}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"usuarios"
+									],
+									"query": [
+										{
+											"key": "pagina",
+											"value": "{{pagina}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Usuário - Atualizar endereço",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"id\", \"100ceb8a-9b73-4e9c-ae03-853ba15d8362\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"cidade\" : \"Nome da cidade\",\r\n    \"cep\" : \"24455000\",\r\n    \"bairro\" : \"Nome do bairro\",\r\n    \"endereco\" : \"Descrição do endereço\",\r\n    \"estado\" : \"Rio dea Janeiro\",\r\n    \"numero\": 7,\r\n    \"complemento\" : \"Complemento do endereço\",\r\n    \"semNumero\" : false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/usuarios/{{id}}/endereco",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"usuarios",
+										"{{id}}",
+										"endereco"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Usuário - Atualizar perfil",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"id\", \"15a0a193-e665-4900-8cf0-d1126eefae69\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idPerfil\" : 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/usuarios/{{id}}/perfil",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"usuarios",
+										"{{id}}",
+										"perfil"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Usuário - Atualizar nome",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"id\", \"15a0a193-e665-4900-8cf0-d1126eefae69\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\" : \"Thiago\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/usuarios/{{id}}/nome",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"usuarios",
+										"{{id}}",
+										"nome"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Usuário - Atualizar email",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"id\", \"20fb4a12-5877-41df-8acb-bdb898fc8130\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\" : \"carla.rodrigues@fiapfood.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/usuarios/{{id}}/email",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"usuarios",
+										"{{id}}",
+										"email"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Usuário - Inativar",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"id\", \"54546505-5c56-4ca7-bd73-7139acec1f1a\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/usuarios/{{id}}/status",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"usuarios",
+										"{{id}}",
+										"status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Usuário - Ativar",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"id\", \"54546505-5c56-4ca7-bd73-7139acec1f1a\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/usuarios/{{id}}/status",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"usuarios",
+										"{{id}}",
+										"status"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Perfil",
+					"item": [
+						{
+							"name": "Perfil - Buscar todos",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/perfis",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"perfis"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "pagina",
+			"value": ""
+		},
+		{
+			"key": "id",
+			"value": ""
+		},
+		{
+			"key": "matricula",
+			"value": ""
+		}
+	]
+}
