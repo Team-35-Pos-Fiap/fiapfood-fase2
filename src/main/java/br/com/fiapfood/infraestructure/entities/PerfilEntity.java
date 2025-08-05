@@ -1,5 +1,8 @@
 package br.com.fiapfood.infraestructure.entities;
 
+import java.time.LocalDate;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,6 +22,11 @@ public class PerfilEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
 	private String nome;
+	
+	@Column(name = "data_criacao", nullable = false)
+	private LocalDate dataCriacao;
+	
+	@Column(name = "data_inativacao")
+	private LocalDate dataInativacao;
 }

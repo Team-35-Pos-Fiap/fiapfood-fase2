@@ -1,23 +1,16 @@
 package br.com.fiapfood.infraestructure.repositories.impl;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Repository;
 
-import br.com.fiapfood.core.entities.dto.PaginacaoDto;
-import br.com.fiapfood.core.entities.dto.UsuarioDto;
-import br.com.fiapfood.core.presenters.EnderecoPresenter;
-import br.com.fiapfood.core.presenters.LoginPresenter;
-import br.com.fiapfood.core.presenters.PaginacaoPresenter;
-import br.com.fiapfood.core.presenters.PerfilPresenter;
+import br.com.fiapfood.core.entities.dto.usuario.DadosUsuarioInputDto;
+import br.com.fiapfood.core.entities.dto.usuario.UsuarioPaginacaoInputDto;
 import br.com.fiapfood.core.presenters.UsuarioPresenter;
-import br.com.fiapfood.core.utils.MapUtils;
 import br.com.fiapfood.infraestructure.entities.UsuarioEntity;
 import br.com.fiapfood.infraestructure.repositories.interfaces.IUsuarioRepository;
 import br.com.fiapfood.infraestructure.repositories.interfaces.jpa.IUsuarioJpaRepository;
@@ -26,6 +19,7 @@ import br.com.fiapfood.infraestructure.repositories.interfaces.jpa.IUsuarioJpaRe
 public class UsuarioRepository implements IUsuarioRepository {
 
 	private final IUsuarioJpaRepository usuarioRepository;
+	
 	private final Integer QUANTIDADE_REGISTROS = 5;
 
 	public UsuarioRepository(IUsuarioJpaRepository usuarioRepository) {
@@ -41,46 +35,59 @@ public class UsuarioRepository implements IUsuarioRepository {
 	public boolean emailJaCadastrado(final String email) {
 		return usuarioRepository.existsByEmail(email);
 	}
-
-	@Override
-	public UsuarioDto buscarPorIdLogin(final UUID loginId) {
-		final Optional<UsuarioEntity> usuario = usuarioRepository.findByIdLogin(loginId);
-
-		if(usuario.isPresent()) {
-			return UsuarioPresenter.toUsuarioDto(usuario.get(), 
-												 PerfilPresenter.toPerfilDto(usuario.get().getPerfil()), 
-												 LoginPresenter.toLoginDto(usuario.get().getDadosLogin()),
-												 EnderecoPresenter.toEnderecoDto(usuario.get().getDadosEndereco()));
-		} else {
-			return null;
-		}
-	}
 	
 	@Override
-	public UsuarioDto buscarPorId(final UUID id) {
+	public DadosUsuarioInputDto buscarPorId(final UUID id) {
 		final Optional<UsuarioEntity> usuario = usuarioRepository.findById(id);
 
 		if(usuario.isPresent()) {
-			return UsuarioPresenter.toUsuarioDto(usuario.get(), 
-												 PerfilPresenter.toPerfilDto(usuario.get().getPerfil()), 
-												 LoginPresenter.toLoginDto(usuario.get().getDadosLogin()),
-												 EnderecoPresenter.toEnderecoDto(usuario.get().getDadosEndereco()));
+			return UsuarioPresenter.toUsuarioInputDto(usuario.get());
+		} else {
+			return null;
+		}
+	}
+	
+	@Override
+	public UsuarioPaginacaoInputDto buscarTodos(final Integer pagina) {
+		Page<UsuarioEntity> dados = usuarioRepository.findAll(PageRequest.of(pagina - 1, QUANTIDADE_REGISTROS));
+		
+		if (!dados.toList().isEmpty()) {
+			return UsuarioPresenter.toUsuarioPaginacaoInputDto(dados);
 		} else {
 			return null;
 		}
 	}
 
 	@Override
-	public Map<Class<?>, Object> buscarUsuariosComPaginacao(final Integer pagina) {
-		return getDados(usuarioRepository.findAll(PageRequest.of(pagina - 1, QUANTIDADE_REGISTROS)));
-	}
-	
-	private Map<Class<?>, Object> getDados(final Page<UsuarioEntity> resultado) {
-		MapUtils mapUtils = new MapUtils();
+	public List<DadosUsuarioInputDto> buscarPorIdPerfil(Integer idPerfil) {
+		List<UsuarioEntity> usuarios = usuarioRepository.findAllByIdPerfil(idPerfil);
 		
-		mapUtils.adicionarItens(UsuarioPresenter.toListUsuarioDto(resultado.get().collect(Collectors.toList())), List.class);
-		mapUtils.adicionarItens(PaginacaoPresenter.toDto(resultado.getNumber(), resultado.getTotalPages(), Long.valueOf(resultado.getTotalElements()).intValue()), PaginacaoDto.class);
+		if(!usuarios.isEmpty()) {
+			return UsuarioPresenter.toListUsuarioDto(usuarios);
+		} else {
+			return null;
+		}
+	}
 
-		return mapUtils.getMap();
+	@Override
+	public DadosUsuarioInputDto buscarPorMatriculaSenha(String matricula, String senha) {
+		final Optional<UsuarioEntity> usuario = usuarioRepository.findByMatriculaSenha(matricula, senha);
+
+		if(usuario.isPresent()) {
+			return UsuarioPresenter.toUsuarioInputDto(usuario.get());
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public boolean matriculaJaCadastrada(String matricula) {
+		final Optional<UsuarioEntity> usuario = usuarioRepository.findByMatricula(matricula);
+
+		if(usuario.isPresent()) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

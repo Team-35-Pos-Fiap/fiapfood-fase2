@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: fiapfood
+  datasource:
+    url: jdbc:mysql://localhost:3306/fiapfood?useSSL=false&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true
+    username: root
+    password: admin
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database: mysql
+    show-sql: true
+  sql:
+    init:
+      mode: always
+  messages:
+    encoding: ISO-8859-1
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+server:
+  servlet:
+    context-path: /fiapfood

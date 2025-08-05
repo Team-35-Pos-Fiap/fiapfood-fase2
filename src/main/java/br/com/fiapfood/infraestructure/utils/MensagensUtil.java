@@ -21,11 +21,20 @@ public class MensagensUtil {
 	public static final String ERRO_PARAMETRO_INVALIDO = "exception.erro_parametro_invalido";
 	public static final String ERRO_PAGINA_INVALIDA = "exception.pagina_invalida";
 	public static final String ERRO_EMAIL_DUPLICADO = "exception.email_duplicado";
+	public static final String ERRO_CARDAPIO_NAO_ENCONTRADO = "exception.cardapios_nao_encontrados";
+	public static final String ERRO_RESTAURANTES_NAO_ENCONTRADOS = "exception.restaurantes_nao_encontrados";
 
 	public static final String SUCESSO_INATIVACAO_USUARIO = "sucesso.inativacao_usuario";
 	public static final String SUCESSO_REATIVACAO_USUARIO = "sucesso.reativacao_usuario";
 	public static final String SUCESSO_TROCA_SENHA_USUARIO = "sucesso.troca_senha_usuario";
+	public static final String SUCESSO_TROCA_MATRICULA_USUARIO = "sucesso.troca_matricula_usuario";
 	public static final String SUCESSO_RECUPERACAO_SENHA_USUARIO = "sucesso.recuperacao_senha_usuario";
+	public static final String SUCESSO_INATIVACAO_RESTAURANTE = "sucesso.inativacao_restaurante";
+	public static final String SUCESSO_REATIVACAO_RESTAURANTE = "sucesso.reativacao_restaurante";
+	public static final String SUCESSO_DELECAO_RESTAURANTE = "sucesso.delecao_restaurante";
+	public static final String SUCESSO_ATUALIZACAO_CARDAPIO = "sucesso.atualizacao_cardapio";
+	public static final String SUCESSO_DELECAO_CARDAPIO = "sucesso.delecao_cardapio";
+
 
 	@Autowired
 	public void setMessageSource(MessageSource messageSource) {

@@ -5,9 +5,9 @@ import java.util.UUID;
 
 import org.apache.commons.lang3.StringUtils;
 
-import br.com.fiapfood.core.exceptions.EmailUsuarioInvalidoException;
-import br.com.fiapfood.core.exceptions.NomeUsuarioInvalidoException;
-import br.com.fiapfood.core.exceptions.PerfilInvalidoException;
+import br.com.fiapfood.core.exceptions.perfil.PerfilInvalidoException;
+import br.com.fiapfood.core.exceptions.usuario.EmailUsuarioInvalidoException;
+import br.com.fiapfood.core.exceptions.usuario.NomeUsuarioInvalidoException;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -20,11 +20,12 @@ public class Usuario {
 	private LocalDateTime dataCriacao;
 	private LocalDateTime dataAtualizacao;
 	private Boolean isAtivo;
-	private UUID idEndereco;
+	private Endereco dadosEndereco;
 	private Integer idPerfil;
-	private UUID idLogin;
+	private Login login;
 
-	private Usuario(UUID id, String nome, Integer idPerfil, Boolean isAtivo, String email, LocalDateTime dataCriacao, LocalDateTime dataAtualizacao, UUID idLogin, UUID idEndereco) {
+	private Usuario(UUID id, String nome, Integer idPerfil, Boolean isAtivo, 
+					String email, LocalDateTime dataCriacao, LocalDateTime dataAtualizacao, Login login, Endereco dadosEndereco) {
 		this.id = id;
 		this.nome = nome;
 		this.idPerfil = idPerfil;
@@ -32,15 +33,17 @@ public class Usuario {
 		this.isAtivo = isAtivo;
 		this.dataAtualizacao = dataAtualizacao;
 		this.email = email;
-		this.idLogin = idLogin;
-		this.idEndereco = idEndereco;
+		this.login = login;
+		this.dadosEndereco = dadosEndereco;
 	}
 	
-	public static Usuario criar(UUID id, String nome, Integer idPerfil, UUID idLogin, Boolean isAtivo, String email, LocalDateTime dataCriacao, LocalDateTime dataAtualizacao, UUID idEndereco) {
+	public static Usuario criar(UUID id, String nome, Integer idPerfil, Login login, Boolean isAtivo, 
+								String email, LocalDateTime dataCriacao, LocalDateTime dataAtualizacao, Endereco dadosEndereco) {
 		validarNome(nome);
 		validarPerfil(idPerfil);
-
-		return new Usuario(id, nome, idPerfil, isAtivo, email, dataCriacao, dataAtualizacao, idLogin, idEndereco);
+		validarEmail(email);
+		
+		return new Usuario(id, nome, idPerfil, isAtivo, email, dataCriacao, dataAtualizacao, login, dadosEndereco);
 	}
 	
 	private static void validarNome(String nome) {
@@ -90,23 +93,17 @@ public class Usuario {
 		this.dataAtualizacao = getDataAtual();
 	}
 	
-	/*
-	
-	public void atualizarEndereco(String endereco, String cidade, String bairro,
-								  String estado, Integer numero, String cep, String complemento) {
-		this.dadosEndereco.atualizarDados(endereco, cidade, bairro, estado, numero, cep, complemento);
+	private LocalDateTime getDataAtual() {
+		return LocalDateTime.now();
+	}
+
+	public void atualizarEndereco(Endereco dadosEndereco) {
+		this.dadosEndereco = dadosEndereco;
 		this.dataAtualizacao = getDataAtual();
 	}
 	
-	
-
-	public void atualizarLogin(String matricula, String senha) {
-		this.dadosLogin.atualizarMatricula(matricula);
-		this.dadosLogin.atualizarSenha(senha);
+	public void atualizarLogin(Login login) {
+		this.login = login;
 		this.dataAtualizacao = getDataAtual();
-	}*/
-
-	private LocalDateTime getDataAtual() {
-		return LocalDateTime.now();
 	}
 }

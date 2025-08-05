@@ -1,113 +1,25 @@
 {
 	"info": {
-		"_postman_id": "9e3d0982-3f83-4d80-aeec-73c78a77199b",
+		"_postman_id": "3ca02f44-86ae-42c5-92ce-b7514ba858c8",
 		"name": "Tech Challenge - Fiap Food - 35",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "45515741",
-		"_collection_link": "https://www.postman.com/dark-moon-236306/fiap-team-35/collection/sod5rrj/tech-challenge-fiap-food-35?action=share&source=collection_link&creator=45515741"
+		"_exporter_id": "33904363"
 	},
 	"item": [
 		{
-			"name": "Serviços de Usuários",
+			"name": "Serviços",
 			"item": [
-				{
-					"name": "Login",
-					"item": [
-						{
-							"name": "Acesso",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"matricula\" : \"us0001\",\r\n  \"senha\" : \"123\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:8080/fiapfood/login",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"fiapfood",
-										"login"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Usuário - Atualizar senha",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								},
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"pm.collectionVariables.set(\"matricula\", \"us0001\");"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"senha\":\"124\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:8080/fiapfood/login/{{matricula}}/senha",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"fiapfood",
-										"login",
-										"{{matricula}}",
-										"senha"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
 				{
 					"name": "Usuário",
 					"item": [
 						{
-							"name": "Usuário - Cadastrar",
+							"name": "Cadastrar",
 							"request": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"nome\" : \"Thiago Motta\",\r\n    \"email\" : \"thiago.motta@fiapfood.com\",\r\n    \"dadosEndereco\" : {\r\n        \"cidade\" : \"Nome da cidade\",\r\n        \"cep\" : \"24455077\",\r\n        \"bairro\" : \"Nome do bairro\",\r\n        \"endereco\" : \"Descrição do endereço\",\r\n        \"estado\" : \"Rio de Janeiro\",\r\n        \"numero\": 7,\r\n        \"complemento\" : \"Complemento do endereço\",\r\n        \"semNumero\" : false\r\n    },\r\n    \"perfil\": 1,\r\n    \"dadosLogin\" : {\r\n        \"matricula\" : \"us012\",\r\n        \"senha\" : \"123\"\r\n    }\r\n}",
+									"raw": "{\r\n    \"nome\" : \"Luiz Castro\",\r\n    \"email\" : \"luiz.castro@fiapfood.com\",\r\n    \"dadosEndereco\" : {\r\n        \"cidade\" : \"Niterói\",\r\n        \"cep\" : \"24455077\",\r\n        \"bairro\" : \"Centro\",\r\n        \"endereco\" : \"Avenida Amaral Peixoto\",\r\n        \"estado\" : \"Rio de Janeiro\",\r\n        \"numero\": 5,\r\n        \"complemento\" : \"\"\r\n    },\r\n    \"perfil\": 1,\r\n    \"dadosLogin\" : {\r\n        \"matricula\" : \"us0001\",\r\n        \"senha\" : \"123\"\r\n    }\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -130,13 +42,13 @@
 							"response": []
 						},
 						{
-							"name": "Usuário - Buscar por id",
+							"name": "Buscar por id",
 							"event": [
 								{
 									"listen": "prerequest",
 									"script": {
 										"exec": [
-											"pm.collectionVariables.set(\"id\", \"54546505-5c56-4ca7-bd73-7139acec1f1a\");"
+											"pm.collectionVariables.set(\"id\", \"b48bc2dc-fd87-462d-a8a6-6e74674d0338\");"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -175,7 +87,7 @@
 							"response": []
 						},
 						{
-							"name": "Usuário - Buscar todos",
+							"name": "Buscar todos",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -225,13 +137,13 @@
 							"response": []
 						},
 						{
-							"name": "Usuário - Atualizar endereço",
+							"name": "Atualizar endereço",
 							"event": [
 								{
 									"listen": "prerequest",
 									"script": {
 										"exec": [
-											"pm.collectionVariables.set(\"id\", \"100ceb8a-9b73-4e9c-ae03-853ba15d8362\");"
+											"pm.collectionVariables.set(\"id\", \"b48bc2dc-fd87-462d-a8a6-6e74674d0338\");"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -243,7 +155,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"cidade\" : \"Nome da cidade\",\r\n    \"cep\" : \"24455000\",\r\n    \"bairro\" : \"Nome do bairro\",\r\n    \"endereco\" : \"Descrição do endereço\",\r\n    \"estado\" : \"Rio dea Janeiro\",\r\n    \"numero\": 7,\r\n    \"complemento\" : \"Complemento do endereço\",\r\n    \"semNumero\" : false\r\n}",
+									"raw": "{\r\n    \"cidade\" : \"Belo Horizonte\",\r\n    \"cep\" : \"24455000\",\r\n    \"bairro\" : \"Centro\",\r\n    \"endereco\" : \"Rua Minas Gerais\",\r\n    \"estado\" : \"Minas Gerais\",\r\n    \"numero\": 25,\r\n    \"complemento\" : \"Loja 1\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -268,13 +180,13 @@
 							"response": []
 						},
 						{
-							"name": "Usuário - Atualizar perfil",
+							"name": "Atualizar perfil",
 							"event": [
 								{
 									"listen": "prerequest",
 									"script": {
 										"exec": [
-											"pm.collectionVariables.set(\"id\", \"15a0a193-e665-4900-8cf0-d1126eefae69\");"
+											"pm.collectionVariables.set(\"id\", \"b48bc2dc-fd87-462d-a8a6-6e74674d0338\");"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -286,7 +198,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"idPerfil\" : 2\r\n}",
+									"raw": "{\r\n    \"idPerfil\" : 1\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -311,13 +223,13 @@
 							"response": []
 						},
 						{
-							"name": "Usuário - Atualizar nome",
+							"name": "Atualizar nome",
 							"event": [
 								{
 									"listen": "prerequest",
 									"script": {
 										"exec": [
-											"pm.collectionVariables.set(\"id\", \"15a0a193-e665-4900-8cf0-d1126eefae69\");"
+											"pm.collectionVariables.set(\"id\", \"b48bc2dc-fd87-462d-a8a6-6e74674d0338\");"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -329,7 +241,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"nome\" : \"Thiago\"\r\n}",
+									"raw": "{\r\n    \"nome\" : \"Carla Rodrigues Souza\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -354,13 +266,13 @@
 							"response": []
 						},
 						{
-							"name": "Usuário - Atualizar email",
+							"name": "Atualizar email",
 							"event": [
 								{
 									"listen": "prerequest",
 									"script": {
 										"exec": [
-											"pm.collectionVariables.set(\"id\", \"20fb4a12-5877-41df-8acb-bdb898fc8130\");"
+											"pm.collectionVariables.set(\"id\", \"b48bc2dc-fd87-462d-a8a6-6e74674d0338\");"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -372,7 +284,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"email\" : \"carla.rodrigues@fiapfood.com\"\r\n}",
+									"raw": "{\r\n    \"email\" : \"carla.souza@fiapfood.com\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -397,56 +309,13 @@
 							"response": []
 						},
 						{
-							"name": "Usuário - Inativar",
+							"name": "Inativar",
 							"event": [
 								{
 									"listen": "prerequest",
 									"script": {
 										"exec": [
-											"pm.collectionVariables.set(\"id\", \"54546505-5c56-4ca7-bd73-7139acec1f1a\");"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:8080/fiapfood/usuarios/{{id}}/status",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"fiapfood",
-										"usuarios",
-										"{{id}}",
-										"status"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Usuário - Ativar",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"pm.collectionVariables.set(\"id\", \"54546505-5c56-4ca7-bd73-7139acec1f1a\");"
+											"pm.collectionVariables.set(\"id\", \"b48bc2dc-fd87-462d-a8a6-6e74674d0338\");"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -466,7 +335,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8080/fiapfood/usuarios/{{id}}/status",
+									"raw": "http://localhost:8080/fiapfood/usuarios/{{id}}/status/inativa",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -476,7 +345,188 @@
 										"fiapfood",
 										"usuarios",
 										"{{id}}",
-										"status"
+										"status",
+										"inativa"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reativar",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"id\", \"b48bc2dc-fd87-462d-a8a6-6e74674d0338\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/usuarios/{{id}}/status/reativa",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"usuarios",
+										"{{id}}",
+										"status",
+										"reativa"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar senha",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"id\", \"b48bc2dc-fd87-462d-a8a6-6e74674d0338\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"senha\":\"124\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/usuarios/{{id}}/senha",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"usuarios",
+										"{{id}}",
+										"senha"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar matrícula",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"id\", \"b48bc2dc-fd87-462d-a8a6-6e74674d0338\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"matricula\":\"us0034\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/usuarios/{{id}}/matricula",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"usuarios",
+										"{{id}}",
+										"matricula"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Validar acesso",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"matricula\" : \"us0034\",\r\n  \"senha\" : \"124\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/usuarios/valida-acesso",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"usuarios",
+										"valida-acesso"
 									]
 								}
 							},
@@ -488,7 +538,7 @@
 					"name": "Perfil",
 					"item": [
 						{
-							"name": "Perfil - Buscar todos",
+							"name": "Buscar todos",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -530,6 +580,1316 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "Buscar por id",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"id\", 1);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/perfis/{{id}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"perfis",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cadastrar",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\" : \"Tecnologia\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/perfis",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"perfis"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar nome",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"id\", 1);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\" : \"Dono de restaurante\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/perfis/{{id}}/nome",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"perfis",
+										"{{id}}",
+										"nome"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Inativar",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"id\", 4);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/perfis/{{id}}/inativa",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"perfis",
+										"{{id}}",
+										"inativa"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reativar",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"id\", 3);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/perfis/{{id}}/reativa",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"perfis",
+										"{{id}}",
+										"reativa"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Tipo de culinária",
+					"item": [
+						{
+							"name": "Buscar todos",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/tipos-culinaria",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"tipos-culinaria"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar por id",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"id\", 1);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/tipos-culinaria/{{id}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"tipos-culinaria",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cadastrar",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\" : \"Mexicana\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/tipos-culinaria",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"tipos-culinaria"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar nome",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"id\", 1);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\" : \"Indiana\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/tipos-culinaria/{{id}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"tipos-culinaria",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Restaurante",
+					"item": [
+						{
+							"name": "Atendimentos",
+							"item": [
+								{
+									"name": "Cadastrar",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.collectionVariables.set(\"id\", \"21adec7d-d4f7-4999-a4dd-eaf0c242b3bd\");"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"dia\" : \"Sábado\",\r\n    \"inicioAtendimento\" : \"11:00:00\",\r\n    \"terminoAtendimento\" : \"15:00:00\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/fiapfood/restaurantes/{{id}}/atendimentos",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"fiapfood",
+												"restaurantes",
+												"{{id}}",
+												"atendimentos"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Atualizar",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.collectionVariables.set(\"id\", \"21adec7d-d4f7-4999-a4dd-eaf0c242b3bd\");"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\" : \"4f59e8f6-0ef4-45de-a8e6-6a1f33a3a765\",\r\n    \"dia\" : \"Terça-feira\",\r\n    \"inicioAtendimento\" : \"15:00:00\",\r\n    \"terminoAtendimento\" : \"22:00:00\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/fiapfood/restaurantes/{{id}}/atendimentos",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"fiapfood",
+												"restaurantes",
+												"{{id}}",
+												"atendimentos"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Excluir",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.collectionVariables.set(\"id-restaurante\", \"21adec7d-d4f7-4999-a4dd-eaf0c242b3bd\");\r",
+													"pm.collectionVariables.set(\"id-atendimento\", \"4f59e8f6-0ef4-45de-a8e6-6a1f33a3a765\");"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"idDono\" : \"9b2ee193-e8aa-4cec-9f3d-ed7e24d33243\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/fiapfood/restaurantes//{{id-restaurante}}/atendimentos/{{id-atendimento}}",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"fiapfood",
+												"restaurantes",
+												"",
+												"{{id-restaurante}}",
+												"atendimentos",
+												"{{id-atendimento}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Itens",
+							"item": [
+								{
+									"name": "Buscar todos",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.collectionVariables.set(\"id-restaurante\", \"21adec7d-d4f7-4999-a4dd-eaf0c242b3bd\");"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/fiapfood/restaurantes/{{id-restaurante}}/itens",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"fiapfood",
+												"restaurantes",
+												"{{id-restaurante}}",
+												"itens"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Buscar por id",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.collectionVariables.set(\"id-restaurante\", \"21adec7d-d4f7-4999-a4dd-eaf0c242b3bd\");\r",
+													"pm.collectionVariables.set(\"id-item\", \"bce5f3c0-d4e4-4957-8f99-b95f12354d13\");"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/fiapfood/restaurantes/{{id-restaurante}}/itens/{{id-item}}",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"fiapfood",
+												"restaurantes",
+												"{{id-restaurante}}",
+												"itens",
+												"{{id-item}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Cadastrar",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.collectionVariables.set(\"id-restaurante\", \"efeb85f2-53b3-4a81-8220-f7c4ebdbec8c\");\r",
+													"pm.collectionVariables.set(\"id-item\", \"1a466bd6-5500-40f3-afd2-d747ac470f67\");"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"descricao\" : \"descrição do item\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/fiapfood/restaurantes/{{id-restaurante}}/itens",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"fiapfood",
+												"restaurantes",
+												"{{id-restaurante}}",
+												"itens"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Atualizar descrição",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.collectionVariables.set(\"id-restaurante\", \"21adec7d-d4f7-4999-a4dd-eaf0c242b3bd\");\r",
+													"pm.collectionVariables.set(\"id-item\", \"bce5f3c0-d4e4-4957-8f99-b95f12354d13\");"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"descricao\" : \"Diversos cortes nobres à vontade e guarnições\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/fiapfood/restaurantes/{{id-restaurante}}/itens/{{id-item}}/descricao",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"fiapfood",
+												"restaurantes",
+												"{{id-restaurante}}",
+												"itens",
+												"{{id-item}}",
+												"descricao"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Atualizar nome",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.collectionVariables.set(\"id-restaurante\", \"21adec7d-d4f7-4999-a4dd-eaf0c242b3bd\");\r",
+													"pm.collectionVariables.set(\"id-item\", \"bce5f3c0-d4e4-4957-8f99-b95f12354d13\");"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"nome\" : \"Rodízio de carnes completo\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/fiapfood/restaurantes/{{id-restaurante}}/itens/{{id-item}}/nome",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"fiapfood",
+												"restaurantes",
+												"{{id-restaurante}}",
+												"itens",
+												"{{id-item}}",
+												"nome"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Atualizar preço",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.collectionVariables.set(\"id-restaurante\", \"21adec7d-d4f7-4999-a4dd-eaf0c242b3bd\");\r",
+													"pm.collectionVariables.set(\"id-item\", \"bce5f3c0-d4e4-4957-8f99-b95f12354d13\");"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"preco\" : 84.99\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/fiapfood/restaurantes/{{id-restaurante}}/itens/{{id-item}}/preco",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"fiapfood",
+												"restaurantes",
+												"{{id-restaurante}}",
+												"itens",
+												"{{id-item}}",
+												"preco"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Atualizar disponibilidade consumo presencial",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.collectionVariables.set(\"id-restaurante\", \"21adec7d-d4f7-4999-a4dd-eaf0c242b3bd\");\r",
+													"pm.collectionVariables.set(\"id-item\", \"bce5f3c0-d4e4-4957-8f99-b95f12354d13\");"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"isDisponivel\" : false\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/fiapfood/restaurantes/{{id-restaurante}}/itens/{{id-item}}/disponibilidade-consumo-presencial",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"fiapfood",
+												"restaurantes",
+												"{{id-restaurante}}",
+												"itens",
+												"{{id-item}}",
+												"disponibilidade-consumo-presencial"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Atualizar disponibilidade",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.collectionVariables.set(\"id-restaurante\", \"21adec7d-d4f7-4999-a4dd-eaf0c242b3bd\");\r",
+													"pm.collectionVariables.set(\"id-item\", \"bce5f3c0-d4e4-4957-8f99-b95f12354d13\");"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"isDisponivel\" : false\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/fiapfood/restaurantes/{{id-restaurante}}/itens/{{id-item}}/disponibilidade",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"fiapfood",
+												"restaurantes",
+												"{{id-restaurante}}",
+												"itens",
+												"{{id-item}}",
+												"disponibilidade"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Atualizar imagem",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.collectionVariables.set(\"id-restaurante\", \"21adec7d-d4f7-4999-a4dd-eaf0c242b3bd\");\r",
+													"pm.collectionVariables.set(\"id-item\", \"bce5f3c0-d4e4-4957-8f99-b95f12354d13\");"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "imagem",
+													"type": "file",
+													"src": []
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8080/fiapfood/restaurantes/{{id-restaurante}}/itens/{{id-item}}/imagem",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"fiapfood",
+												"restaurantes",
+												"{{id-restaurante}}",
+												"itens",
+												"{{id-item}}",
+												"imagem"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Baixar imagem item",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.collectionVariables.set(\"id-restaurante\", \"21adec7d-d4f7-4999-a4dd-eaf0c242b3bd\");\r",
+													"pm.collectionVariables.set(\"id-item\", \"bce5f3c0-d4e4-4957-8f99-b95f12354d13\");"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/fiapfood/restaurantes/{{id-restaurante}}/itens/{{id-item}}/imagem/download",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"fiapfood",
+												"restaurantes",
+												"{{id-restaurante}}",
+												"itens",
+												"{{id-item}}",
+												"imagem",
+												"download"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Cadastrar",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Restaurante O melhor churrasco\",\r\n    \"idDonoRestaurante\" : \"\",\r\n    \"idTipoCulinaria\" : 1, \r\n    \"dadosEndereco\": {\r\n        \"cidade\": \"São Paulo\",\r\n        \"cep\": \"05422002\",\r\n        \"bairro\": \"Pinheiros\",\r\n        \"endereco\": \"Rua dos Pinheiros\",\r\n        \"estado\": \"SP\",\r\n        \"numero\": 1340,\r\n        \"complemento\": \"Conjunto 25\",\r\n        \"semNumero\": false\r\n    },\r\n    \"atendimentos\" : [\r\n        {\r\n            \"dia\" : \"Segunda-feira\",\r\n            \"inicioAtendimento\" : \"12:00:00\",\r\n            \"terminoAtendimento\" : \"15:00:00\"\r\n        }\r\n    ]\r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/restaurantes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"restaurantes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar nome",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"id\", \"21adec7d-d4f7-4999-a4dd-eaf0c242b3bd\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Restaurante O Saboroso\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/restaurantes/{{id}}/nome",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"restaurantes",
+										"{{id}}",
+										"nome"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar endereço",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"id\", \"21adec7d-d4f7-4999-a4dd-eaf0c242b3bd\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"cidade\" : \"Salvador\",\r\n    \"cep\" : \"24455234\",\r\n    \"bairro\" : \"Centro\",\r\n    \"endereco\" : \"Rua Bahia\",\r\n    \"estado\" : \"Bahia\",\r\n    \"numero\": 76,\r\n    \"complemento\" : \"Quadra 5\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/restaurantes/{{id}}/endereco",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"restaurantes",
+										"{{id}}",
+										"endereco"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar dono",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"id\", \"21adec7d-d4f7-4999-a4dd-eaf0c242b3bd\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idDono\" : \"ab2d3d6a-75ae-48ec-b78b-5380e3a24ef6\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/restaurantes/{{id}}/dono",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"restaurantes",
+										"{{id}}",
+										"dono"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar tipo de culinária",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"id\", \"21adec7d-d4f7-4999-a4dd-eaf0c242b3bd\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idTipoCulinaria\" : 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/restaurantes/{{id}}/tipo-culinaria",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"restaurantes",
+										"{{id}}",
+										"tipo-culinaria"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar todos",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"pagina\", 1);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/restaurantes?pagina={{pagina}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"restaurantes"
+									],
+									"query": [
+										{
+											"key": "pagina",
+											"value": "{{pagina}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar por id",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"id\", \"21adec7d-d4f7-4999-a4dd-eaf0c242b3bd\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/restaurantes/{{id}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"restaurantes",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Inativar",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"id\", \"21adec7d-d4f7-4999-a4dd-eaf0c242b3bd\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/restaurantes/{{id}}/status/inativa",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"restaurantes",
+										"{{id}}",
+										"status",
+										"inativa"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reativar",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"id\", \"21adec7d-d4f7-4999-a4dd-eaf0c242b3bd\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/fiapfood/restaurantes/{{id}}/status/reativa",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"fiapfood",
+										"restaurantes",
+										"{{id}}",
+										"status",
+										"reativa"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				}
@@ -547,6 +1907,18 @@
 		},
 		{
 			"key": "matricula",
+			"value": ""
+		},
+		{
+			"key": "id-restaurante",
+			"value": ""
+		},
+		{
+			"key": "id-atendimento",
+			"value": ""
+		},
+		{
+			"key": "id-item",
 			"value": ""
 		}
 	]

@@ -4,8 +4,8 @@ import java.util.UUID;
 
 import org.apache.commons.lang3.StringUtils;
 
-import br.com.fiapfood.core.exceptions.MatriculaInvalidaException;
-import br.com.fiapfood.core.exceptions.SenhaInvalidaException;
+import br.com.fiapfood.core.exceptions.usuario.MatriculaInvalidaException;
+import br.com.fiapfood.core.exceptions.usuario.SenhaUsuarioInvalidaException;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -37,7 +37,7 @@ public class Login {
 	
 	private static void validarSenha(String senha) {
 		if(StringUtils.isBlank(senha) ) {
-			throw new SenhaInvalidaException("A informação da senha não é válida.");
+			throw new SenhaUsuarioInvalidaException("A informação da senha não é válida.");
 		}
 	}
 

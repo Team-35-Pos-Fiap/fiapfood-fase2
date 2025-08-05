@@ -24,12 +24,4 @@ public class LoginEntity {
 	@Column(unique = true)
 	private String matricula;
 	private String senha;
-
-	public void atualizarSenha(String senha) {
-		this.senha = senha;
-	}
-
-	public void atualizarMatricula(String matricula) {
-		this.matricula = matricula;
-	}
 }

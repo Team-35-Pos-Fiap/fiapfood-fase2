@@ -2,9 +2,12 @@ package br.com.fiapfood.infraestructure.repositories.interfaces;
 
 import java.util.List;
 
-import br.com.fiapfood.core.entities.dto.PerfilDto;
+import br.com.fiapfood.core.entities.dto.perfil.PerfilCoreDto;
+import br.com.fiapfood.infraestructure.entities.PerfilEntity;
 
 public interface IPerfilRepository {
-    PerfilDto buscarPorId(Integer id);
-    List<PerfilDto> buscarTodos();
+    PerfilCoreDto buscarPorId(Integer id);
+    List<PerfilCoreDto> buscarTodos();
+	void salvar(PerfilEntity perfil);
+	boolean nomeJaCadastrado(String nome);
 }

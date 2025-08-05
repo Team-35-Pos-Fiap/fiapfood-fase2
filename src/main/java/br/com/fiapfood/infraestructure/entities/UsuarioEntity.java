@@ -50,45 +50,4 @@ public class UsuarioEntity {
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "id_login")
 	private LoginEntity dadosLogin;
-	
-	public void inativar() {
-		this.isAtivo = false;
-		this.dataAtualizacao = getDataAtual();
-	}
-	
-	public void reativar() {
-		this.isAtivo = true;
-		this.dataAtualizacao = getDataAtual();
-	}
-
-	public void atualizarPerfil(PerfilEntity perfil) {
-		this.perfil = perfil;
-		this.dataAtualizacao = getDataAtual();
-	}
-	
-	public void atualizarNome(String nome) {
-		this.nome = nome;
-		this.dataAtualizacao = getDataAtual();
-	}
-	
-	public void atualizarEmail(String email) {
-		this.email = email;
-		this.dataAtualizacao = getDataAtual();
-	}
-
-	public void atualizarEndereco(String endereco, String cidade, String bairro,
-								  String estado, Integer numero, String cep, String complemento) {
-		this.dadosEndereco.atualizarDados(endereco, cidade, bairro, estado, numero, cep, complemento);
-		this.dataAtualizacao = getDataAtual();
-	}
-
-	public void atualizarLogin(String matricula, String senha) {
-		this.dadosLogin.atualizarMatricula(matricula);
-		this.dadosLogin.atualizarSenha(senha);
-		this.dataAtualizacao = getDataAtual();
-	}
-
-	private LocalDateTime getDataAtual() {
-		return LocalDateTime.now();
-	}
 }

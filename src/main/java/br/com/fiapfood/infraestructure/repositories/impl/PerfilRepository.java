@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
-import br.com.fiapfood.core.entities.dto.PerfilDto;
+import br.com.fiapfood.core.entities.dto.perfil.PerfilCoreDto;
 import br.com.fiapfood.core.presenters.PerfilPresenter;
 import br.com.fiapfood.infraestructure.entities.PerfilEntity;
 import br.com.fiapfood.infraestructure.repositories.interfaces.IPerfilRepository;
@@ -21,7 +21,7 @@ public class PerfilRepository implements IPerfilRepository {
 	}
 
 	@Override
-	public PerfilDto buscarPorId(final Integer id) {
+	public PerfilCoreDto buscarPorId(final Integer id) {
 		final Optional<PerfilEntity> dados = perfilRepository.findById(id);
 		
 		if(dados.isPresent()) {
@@ -32,7 +32,17 @@ public class PerfilRepository implements IPerfilRepository {
 	}
 
 	@Override
-	public List<PerfilDto> buscarTodos() {
+	public List<PerfilCoreDto> buscarTodos() {
 		return PerfilPresenter.toListPerfilDto(perfilRepository.findAll());
+	}
+
+	@Override
+	public void salvar(final PerfilEntity perfil) {
+		perfilRepository.save(perfil);		
+	}
+
+	@Override
+	public boolean nomeJaCadastrado(final String nome) {
+		return perfilRepository.existsByNomeIgnoreCase(nome);
 	}
 }

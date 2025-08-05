@@ -1,45 +1,37 @@
 package br.com.fiapfood.core.usecases.login.impl;
 
-import java.util.UUID;
-
-import br.com.fiapfood.core.entities.Login;
 import br.com.fiapfood.core.entities.Usuario;
-import br.com.fiapfood.core.entities.dto.LoginDto;
-import br.com.fiapfood.core.exceptions.UsuarioSemAcessoException;
-import br.com.fiapfood.core.gateways.interfaces.ILoginGateway;
+import br.com.fiapfood.core.exceptions.usuario.UsuarioSemAcessoException;
 import br.com.fiapfood.core.gateways.interfaces.IUsuarioGateway;
-import br.com.fiapfood.core.usecases.login.interfaces.IValidarLoginUseCase;
+import br.com.fiapfood.core.usecases.login.interfaces.IValidarAcessoUseCase;
 
-public class ValidarLoginUseCase implements IValidarLoginUseCase {
+public class ValidarLoginUseCase implements IValidarAcessoUseCase {
 
-	private final ILoginGateway loginGateway;
 	private final IUsuarioGateway usuarioGateway;
-
-	public ValidarLoginUseCase(ILoginGateway loginGateway, IUsuarioGateway usuarioGateway) {
-		this.loginGateway = loginGateway;
+	
+	private final String ACESSO_LIBERADO = "Acesso liberado para o usuário ";
+	private final String USUARIO_INATIVO = "Não é possível realizar o login para usuários inativos.";
+	
+	public ValidarLoginUseCase(IUsuarioGateway usuarioGateway) {
 		this.usuarioGateway = usuarioGateway;
 	}
 	
 	@Override
-	public String validar(final LoginDto dados) {
-		final Login login = buscarLoginPorMatriculaSenha(dados.matricula(), dados.senha());
+	public String validar(final String matricula, final String senha) {
+		Usuario usuario = buscarUsuario(matricula, senha);
 		
-		validaAcessoUsuario(login.getId());
+		validarUsuario(usuario);
 		
-		return "Acesso liberado.";
-	}
-	
-	private Login buscarLoginPorMatriculaSenha(final String matricula, final String senha) {
-		return loginGateway.buscarPorMatriculaSenha(matricula, senha);
-	}
-	
-	private void validaAcessoUsuario(final UUID idLogin) {
-		validarUsuario(usuarioGateway.buscarPorIdLogin(idLogin));
+		return ACESSO_LIBERADO + usuario.getNome();
 	}
 	
 	private void validarUsuario(final Usuario usuario) {
 		if (!usuario.getIsAtivo()) {
-			throw new UsuarioSemAcessoException("Não é possível realizar o login para usuários inativos.");
+			throw new UsuarioSemAcessoException(USUARIO_INATIVO);
 		} 
+	}
+	
+	private Usuario buscarUsuario(final String matricula, final String senha) {
+		return usuarioGateway.buscarPorMatriculaSenha(matricula, senha);
 	}
 }
